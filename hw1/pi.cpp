@@ -7,6 +7,7 @@
 #include<sys/wait.h>
 #include<sys/time.h>
 #include<semaphore.h>
+#define double float
 using namespace std;
 sem_t s,se[105];
 unsigned long long number_in_circle;
@@ -60,10 +61,8 @@ int main(int argc, char **argv)
         sem_init(&se[i],1,0);
         int *k = (int *)malloc(sizeof(int));
         *k = i;
-        if(i!=0)
-            pthread_create(&thread[i],NULL,sample,(void *)k);
-        else
-            pthread_create(&thread[i],NULL,sample,(void *)k);
+
+        pthread_create(&thread[i],NULL,sample,(void *)k);
     }
     for(int i=0;i<number_of_cpu;i++){
         sem_wait(&se[i]);

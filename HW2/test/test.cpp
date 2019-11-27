@@ -13,22 +13,11 @@ using namespace std;
 #define F first
 #define S second
 const int mod = 1e9 + 7;
-void test(int n){
-    for(int i = 0 ; i < 10000 ; i++){
-        for(int j = 0 ; j < 100000 ; j++){
-            int x = i ^ i ^ j ^ j;
-        }
-    }
-    cout << n << endl;
-}
 int main(){
     //ios_base::sync_with_stdio(0);
     //cin.tie(0);
-    #pragma omp parallel 
-    {
-    #pragma omp for
-    for(int i = 0 ; i < 10 ; i++){
-        test(i);
-    }
+    #pragma omp parallel for
+    f(100){
+        printf("%d\n",i);
     }
 }
